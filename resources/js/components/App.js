@@ -16,8 +16,8 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/' component={ArticleIndex}/>
                         <Route exact path='/create' component={ArticleCreate} />
-                        <Route path='/edit/:id' component={ArticleEdit} />
-                        <Route path='/:id' component={ArticleShow} />
+                        <Route  path='/articles/:id/edit' component={ArticleEdit} />
+                        <Route  path='/articles/:id' component={ArticleShow} />
                     </Switch>
                 </div>
             </BrowserRouter>

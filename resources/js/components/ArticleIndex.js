@@ -51,7 +51,7 @@ class ArticleIndex extends Component {
     }
 
     deleteItem(id) {
-        axios.delete(`/api/articles/${article.id}`).then(response => {
+        axios.delete(`/api/articles/${id}`).then(response => {
             var msg = response.data.success;
             if(msg == true){
                 this.hideAlert();

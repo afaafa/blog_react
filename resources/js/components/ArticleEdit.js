@@ -27,9 +27,9 @@ import SweetAlert from 'react-bootstrap-sweetalert';
  
       componentDidMount () {
  
-        const articleId = this.props.match.params.id
+        const id = this.props.match.params.id
  
-        axios.get(`/api/articles/${articleId}/edit`).then(response => {
+        axios.get(`/api/articles/${id}/edit`).then(response => {
           this.setState({
             title: response.data.title,
             content: response.data.content,
@@ -73,9 +73,9 @@ import SweetAlert from 'react-bootstrap-sweetalert';
           content: this.state.content
         }
  
-        const articleId = this.props.match.params.id
+        const id = this.props.match.params.id
  
-        axios.put(`/api/articles/${articleId}`, article)
+        axios.put(`/api/articles/${id}`, article)
           .then(response => {
             // redirect to the homepage
             var msg = response.data.success;

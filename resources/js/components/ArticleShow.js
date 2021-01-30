@@ -12,9 +12,9 @@ import { Link } from 'react-router-dom';
  
       componentDidMount () {
  
-        const articleId = this.props.match.params.id
+        const id = this.props.match.params.id
  
-        axios.get(`/api/articles/${articleId}`).then(response => {
+        axios.get(`/api/articles/${id}`).then(response => {
           this.setState({
             article: response.data
           })

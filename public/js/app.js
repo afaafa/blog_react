@@ -2057,10 +2057,10 @@ var App = /*#__PURE__*/function (_Component) {
               path: "/create",
               component: _ArticleCreate__WEBPACK_IMPORTED_MODULE_5__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-              path: "/edit/:id",
+              path: "/articles/:id/edit",
               component: _ArticleEdit__WEBPACK_IMPORTED_MODULE_7__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-              path: "/:id",
+              path: "/articles/:id",
               component: _ArticleShow__WEBPACK_IMPORTED_MODULE_6__.default
             })]
           })]
@@ -2378,8 +2378,8 @@ var ArticleEdit = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var articleId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/articles/".concat(articleId, "/edit")).then(function (response) {
+      var id = this.props.match.params.id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/articles/".concat(id, "/edit")).then(function (response) {
         _this2.setState({
           title: response.data.title,
           content: response.data.content
@@ -2431,8 +2431,8 @@ var ArticleEdit = /*#__PURE__*/function (_Component) {
         title: this.state.title,
         content: this.state.content
       };
-      var articleId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().put("/api/articles/".concat(articleId), article).then(function (response) {
+      var id = this.props.match.params.id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put("/api/articles/".concat(id), article).then(function (response) {
         // redirect to the homepage
         var msg = response.data.success;
 
@@ -2652,7 +2652,7 @@ var ArticleIndex = /*#__PURE__*/function (_Component) {
     value: function deleteItem(id) {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/api/articles/".concat(article.id)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/api/articles/".concat(id)).then(function (response) {
         var msg = response.data.success;
 
         if (msg == true) {
@@ -2850,8 +2850,8 @@ var ArticleShow = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var articleId = this.props.match.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/articles/".concat(articleId)).then(function (response) {
+      var id = this.props.match.params.id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/articles/".concat(id)).then(function (response) {
         _this2.setState({
           article: response.data
         });
